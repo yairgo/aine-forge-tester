@@ -127,10 +127,6 @@ VITE_API_URL=http://localhost:3000
 4. Ensure linting passes: `npm run lint`
 5. Submit a pull request
 
-## 👥 Contributors
-
-- [yairgo](https://github.com/yairgo)
-
 ## 📄 License
 
 MIT
