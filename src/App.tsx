@@ -28,4 +28,4 @@ function App() {
 export default App
 
 // Intentional syntax error
-console.log('This is an intentional syntax error'
+console.log('This is an intentional syntax error')
