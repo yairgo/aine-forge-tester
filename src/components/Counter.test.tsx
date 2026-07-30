@@ -47,3 +47,4 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
 })
+
