@@ -36,16 +36,12 @@ describe('FeatureCard', () => {
     expect(screen.getByText('🚀')).toBeInTheDocument()
   })
 
-  // --- Failing tests ---
+  // --- Failing tests: these assert unimplemented features ---
 
   it('renders a link when href prop is provided', () => {
     render(
-      <FeatureCard
-        title="Test Feature"
-        description="Test description"
-        icon="🚀"
-        href="https://example.com"
-      />
+      // @ts-expect-error href prop is not yet implemented
+      <FeatureCard title="Test Feature" description="Test description" icon="🚀" href="https://example.com" />
     )
     const link = screen.getByRole('link', { name: /test feature/i })
     expect(link).toHaveAttribute('href', 'https://example.com')
@@ -53,24 +49,16 @@ describe('FeatureCard', () => {
 
   it('applies a custom className when provided', () => {
     const { container } = render(
-      <FeatureCard
-        title="Test Feature"
-        description="Test description"
-        icon="🚀"
-        className="highlight"
-      />
+      // @ts-expect-error className prop is not yet implemented
+      <FeatureCard title="Test Feature" description="Test description" icon="🚀" className="highlight" />
     )
     expect(container.firstChild).toHaveClass('highlight')
   })
 
   it('renders a badge when badge prop is provided', () => {
     render(
-      <FeatureCard
-        title="Test Feature"
-        description="Test description"
-        icon="🚀"
-        badge="New"
-      />
+      // @ts-expect-error badge prop is not yet implemented
+      <FeatureCard title="Test Feature" description="Test description" icon="🚀" badge="New" />
     )
     expect(screen.getByText('New')).toBeInTheDocument()
   })

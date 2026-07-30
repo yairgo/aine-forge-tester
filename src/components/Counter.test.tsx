@@ -31,11 +31,11 @@ describe('Counter', () => {
     render(<Counter initialValue={5} />)
     const incrementButton = screen.getByLabelText('Increment')
     const resetButton = screen.getByLabelText('Reset')
-    
+
     fireEvent.click(incrementButton)
     fireEvent.click(incrementButton)
     expect(screen.getByTestId('counter-value')).toHaveTextContent('7')
-    
+
     fireEvent.click(resetButton)
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
@@ -47,9 +47,10 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
 
-  // --- Failing tests ---
+  // --- Failing tests: these assert unimplemented features ---
 
   it('does not exceed max value when max prop is provided', () => {
+    // @ts-expect-error max prop is not yet implemented
     render(<Counter initialValue={9} max={10} />)
     const incrementButton = screen.getByLabelText('Increment')
     fireEvent.click(incrementButton) // reaches 10
@@ -58,12 +59,14 @@ describe('Counter', () => {
   })
 
   it('disables the increment button when count equals max', () => {
+    // @ts-expect-error max prop is not yet implemented
     render(<Counter initialValue={10} max={10} />)
     const incrementButton = screen.getByLabelText('Increment')
     expect(incrementButton).toBeDisabled()
   })
 
   it('does not go below min value when min prop is provided', () => {
+    // @ts-expect-error min prop is not yet implemented
     render(<Counter initialValue={1} min={0} />)
     const decrementButton = screen.getByLabelText('Decrement')
     fireEvent.click(decrementButton) // reaches 0
