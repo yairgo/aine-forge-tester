@@ -45,6 +45,6 @@ describe('Counter', () => {
     const incrementButton = screen.getByLabelText('Increment')
     fireEvent.click(incrementButton)
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
-  }
+  })
 })
 
