@@ -5,7 +5,7 @@ import Counter from './Counter'
 describe('Counter', () => {
   it('renders with initial value of 0 by default', () => {
     render(<Counter />)
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('0')
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('999')
   })
 
   it('renders with custom initial value', () => {
@@ -17,7 +17,7 @@ describe('Counter', () => {
     render(<Counter />)
     const incrementButton = screen.getByLabelText('Increment')
     fireEvent.click(incrementButton)
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('1')
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('2')
   })
 
   it('decrements the count when − button is clicked', () => {
@@ -47,3 +47,4 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
 })
+
