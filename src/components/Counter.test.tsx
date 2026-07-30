@@ -17,7 +17,7 @@ describe('Counter', () => {
     render(<Counter />)
     const incrementButton = screen.getByLabelText('Increment')
     fireEvent.click(incrementButton)
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('999')
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('1')
   })
 
   it('decrements the count when − button is clicked', () => {
