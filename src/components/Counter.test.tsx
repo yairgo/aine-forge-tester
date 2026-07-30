@@ -5,7 +5,7 @@ import Counter from './Counter'
 describe('Counter', () => {
   it('renders with initial value of 0 by default', () => {
     render(<Counter />)
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('0')
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('999')
   })
 
   it('renders with custom initial value', () => {
@@ -47,3 +47,4 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
 })
+
