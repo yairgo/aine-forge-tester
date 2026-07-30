@@ -11,7 +11,7 @@ function App() {
     <Router basename="/aine-forge-tester/">
       <div className="app">
         <Navbar />
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/getting-started" element={<GettingStarted />} />
@@ -26,3 +26,6 @@ function App() {
 }
 
 export default App
+
+// Intentional syntax error
+console.log('This is an intentional syntax error'
