@@ -4,6 +4,10 @@ A TypeScript/React application designed as a testing ground for agentic coding t
 
 [![CI and Deploy](https://github.com/royceacho-wwt/aine-forge-tester/actions/workflows/ci.yml/badge.svg)](https://github.com/royceacho-wwt/aine-forge-tester/actions/workflows/ci.yml)
 
+## 😄 Joke of the Repo
+
+> Why do programmers prefer dark mode?
+> **Because light attracts bugs!** 🐛
 
 ## 📋 Overview
 
