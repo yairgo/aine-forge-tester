@@ -46,4 +46,28 @@ describe('Counter', () => {
     fireEvent.click(incrementButton)
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
+
+  // --- Failing tests ---
+
+  it('does not exceed max value when max prop is provided', () => {
+    render(<Counter initialValue={9} max={10} />)
+    const incrementButton = screen.getByLabelText('Increment')
+    fireEvent.click(incrementButton) // reaches 10
+    fireEvent.click(incrementButton) // should be capped at 10
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('10')
+  })
+
+  it('disables the increment button when count equals max', () => {
+    render(<Counter initialValue={10} max={10} />)
+    const incrementButton = screen.getByLabelText('Increment')
+    expect(incrementButton).toBeDisabled()
+  })
+
+  it('does not go below min value when min prop is provided', () => {
+    render(<Counter initialValue={1} min={0} />)
+    const decrementButton = screen.getByLabelText('Decrement')
+    fireEvent.click(decrementButton) // reaches 0
+    fireEvent.click(decrementButton) // should be capped at 0
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('0')
+  })
 })

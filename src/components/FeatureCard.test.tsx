@@ -35,4 +35,43 @@ describe('FeatureCard', () => {
     )
     expect(screen.getByText('🚀')).toBeInTheDocument()
   })
+
+  // --- Failing tests ---
+
+  it('renders a link when href prop is provided', () => {
+    render(
+      <FeatureCard
+        title="Test Feature"
+        description="Test description"
+        icon="🚀"
+        href="https://example.com"
+      />
+    )
+    const link = screen.getByRole('link', { name: /test feature/i })
+    expect(link).toHaveAttribute('href', 'https://example.com')
+  })
+
+  it('applies a custom className when provided', () => {
+    const { container } = render(
+      <FeatureCard
+        title="Test Feature"
+        description="Test description"
+        icon="🚀"
+        className="highlight"
+      />
+    )
+    expect(container.firstChild).toHaveClass('highlight')
+  })
+
+  it('renders a badge when badge prop is provided', () => {
+    render(
+      <FeatureCard
+        title="Test Feature"
+        description="Test description"
+        icon="🚀"
+        badge="New"
+      />
+    )
+    expect(screen.getByText('New')).toBeInTheDocument()
+  })
 })
