@@ -47,13 +47,12 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
 
-  it('reaches 3 after two increments from 0', () => {
-    // BROKEN: two increments of step=1 from 0 produces 2, not 3
+  it('reaches 2 after two increments from 0', () => {
     render(<Counter />)
     const incrementButton = screen.getByLabelText('Increment')
     fireEvent.click(incrementButton)
     fireEvent.click(incrementButton)
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('3')
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('2')
   })
 })
 
