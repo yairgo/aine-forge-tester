@@ -17,4 +17,30 @@ describe('Header', () => {
     render(<Header title="Test Title" />)
     expect(screen.queryByText('Test Subtitle')).not.toBeInTheDocument()
   })
+
+  // --- Failing tests: unimplemented features (marked with it.fails) ---
+
+  it.fails('applies a custom className to the header element', () => {
+    const { container } = render(
+      // @ts-expect-error className prop is not yet implemented
+      <Header title="Test Title" className="custom-header" />
+    )
+    expect(container.querySelector('header')).toHaveClass('custom-header')
+  })
+
+  it.fails('renders a back button when showBackButton prop is true', () => {
+    // @ts-expect-error showBackButton prop is not yet implemented
+    render(<Header title="Test Title" showBackButton />)
+    expect(screen.getByRole('button', { name: /back/i })).toBeInTheDocument()
+  })
+
+  it.fails('renders children inside the header', () => {
+    render(
+      // @ts-expect-error children prop is not yet implemented
+      <Header title="Test Title">
+        <nav data-testid="header-nav">Navigation</nav>
+      </Header>
+    )
+    expect(screen.getByTestId('header-nav')).toBeInTheDocument()
+  })
 })
