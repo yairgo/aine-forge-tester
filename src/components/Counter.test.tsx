@@ -46,4 +46,13 @@ describe('Counter', () => {
     fireEvent.click(incrementButton)
     expect(screen.getByTestId('counter-value')).toHaveTextContent('5')
   })
+
+  it('resets to 0 when Reset is clicked regardless of initialValue', () => {
+    // BUG: reset returns to initialValue, not 0, so this assertion is wrong
+    render(<Counter initialValue={7} />)
+    const resetButton = screen.getByLabelText('Reset')
+    fireEvent.click(resetButton)
+    expect(screen.getByTestId('counter-value')).toHaveTextContent('0')
+  })
 })
+
